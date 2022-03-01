@@ -48,17 +48,19 @@ pipeline {
         sh 'npm run test'
       }
     }
+
+    /*
     stage('Test end-to-end') {
       steps{
         echo "------------>Testing Protractor<------------"
         sh 'npm run e2e'
       }
-    }
+    }*/
 
     stage('Static Code Analysis') {
         steps{
-            sonarqubeMasQualityGatesP(sonarKey:'co.com.ceiba.adn:reserva.buceo-javier.suarez',
-            sonarName:'''"CeibaADN-ReservaBuceo(javier.suarez)"''',
+            sonarqubeMasQualityGatesP(sonarKey:'co.com.ceiba.adn:reserva.buceo.front-javier.suarez',
+            sonarName:'''"CeibaADN-ReservaBuceo-Front(javier.suarez)"''',
             sonarPathProperties:'./sonar-project.properties')
         }
     }
