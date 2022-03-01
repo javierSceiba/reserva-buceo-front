@@ -37,12 +37,12 @@
         </thead>
         <tbody>
           <tr *ngFor="let item of listaReservas" class="table-primary">
-            <td nowrap>{{item.id}}</td>
-            <td nowrap>{{item.nombreCliente}}</td>
-            <td nowrap>{{item.tipoUsuario == 1 ? 'Nativo' : 'Turista'}}</td>
-            <td nowrap>{{item.numeroDocumento}}</td>
-            <td nowrap>{{item.costoReserva}}</td>
-            <td nowrap>{{item.fechaReserva}}</td>
+            <td>{{item.id}}</td>
+            <td>{{item.nombreCliente}}</td>
+            <td>{{item.tipoUsuario == 1 ? 'Nativo' : 'Turista'}}</td>
+            <td>{{item.numeroDocumento}}</td>
+            <td>{{item.costoReserva}}</td>
+            <td>{{item.fechaReserva}}</td>
           </tr>
         </tbody>
       </table>

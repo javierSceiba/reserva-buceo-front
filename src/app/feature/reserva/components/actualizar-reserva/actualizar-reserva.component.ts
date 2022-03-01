@@ -56,10 +56,11 @@ export class ActualizarReservaComponent implements OnInit {
   }
 
   public calcularFechaPermitida() {
+    let menosDos = -2;
     let date = new Date();
     date = this.sumarDias(date, 1);
-    let day = `0${date.getDate()}`.slice(-2);
-    let month = `0${date.getMonth() + 1}`.slice(-2);
+    let day = `0${date.getDate()}`.slice(menosDos);
+    let month = `0${date.getMonth() + 1}`.slice(menosDos);
     let year = date.getFullYear();
     this.fechaPermitida = `${year}-${month}-${day}`;
   }
