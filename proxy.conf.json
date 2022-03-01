@@ -1,0 +1,7 @@
+{
+  "/reserva-buceo": {
+    "target": "http://localhost:9000",
+    "logLevel": "debug"
+  }
+
+}

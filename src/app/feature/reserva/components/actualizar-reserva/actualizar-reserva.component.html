@@ -1,0 +1,50 @@
+<h1>Consultar Reserva</h1>
+<form [formGroup]="actualizarForm" (ngSubmit)="consultar()">
+  <br>
+  <div class="row justify-content-center">
+    <div class="col-sm-6">
+      <div class="row justify-content-center">
+        <div class="col-sm-6">
+          <label>Id reserva:</label>
+          <input validar type="number" id="id" name="id" placeholder="Id reserva" class="form-control"
+            formControlName="id">
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-sm-6">
+          <label>Fecha reserva:</label>
+          <input validar type="date" id="fechaReserva" name="fechaReserva" placeholder="Fecha reserva"
+            class="form-control" formControlName="fechaReserva" min="{{fechaPermitida}}">
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-sm-4">
+          <button type="submit" class="btn btn-outline-primary" id="botonActualizar"
+            [disabled]="!actualizarForm.valid">Actualizar reserva</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+<!-- Button trigger modal -->
+<button type="button" hidden="hidden" class="bModal" data-bs-toggle="modal" data-bs-target="#exampleModal">
+</button>
+
+<!-- Modal -->
+<div class="modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Reserva</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h6>{{mensajeModal}}</h6>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,73 @@
+<h1>Consultar Reserva</h1>
+<form [formGroup]="consultaForm" (ngSubmit)="consultar()">
+  <br>
+  <div class="row justify-content-center">
+    <div class="col-sm-6">
+      <div class="row justify-content-center">
+        <div class="col-sm-6">
+          <label>Id reserva:</label>
+          <input validar type="number" id="id" name="id" placeholder="Nombre cliente" class="form-control"
+            formControlName="id">
+        </div>
+      </div>
+      <br>
+      <div class="row justify-content-center">
+        <div class="col-sm-4">
+          <button type="submit" class="btn btn-outline-primary" id="botonConsultar"
+            [disabled]="!consultaForm.valid">Consultar reserva</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+<br>
+<div class="row justify-content-center">
+    <div *ngIf="disTabla" class="col-auto">
+      <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr class="table-dark">
+            <th>Id reserva</th>
+            <th>Nombre del cliente</th>
+            <th>Tipo de usuario</th>
+            <th>Número de documento</th>
+            <th>Costo reserva</th>
+            <th>Fecha reserva</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of listaReservas" class="table-primary">
+            <td nowrap>{{item.id}}</td>
+            <td nowrap>{{item.nombreCliente}}</td>
+            <td nowrap>{{item.tipoUsuario == 1 ? 'Nativo' : 'Turista'}}</td>
+            <td nowrap>{{item.numeroDocumento}}</td>
+            <td nowrap>{{item.costoReserva}}</td>
+            <td nowrap>{{item.fechaReserva}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- Button trigger modal -->
+<button type="button" hidden="hidden" class="bModal" data-bs-toggle="modal" data-bs-target="#exampleModal">
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Reserva</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <span>{{mensajeModal}}</span>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>

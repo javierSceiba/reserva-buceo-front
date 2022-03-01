@@ -1,0 +1,60 @@
+<h1>Crear Reserva</h1>
+<form [formGroup]="reservaForm" (ngSubmit)="crear()">
+  <br>
+  <div class="row justify-content-center">
+    <div class="col-sm-6">
+      <div class="row justify-content-center">
+        <div class="col-sm-6">
+          <label>Nombre cliente:</label>
+          <input validar type="text" id="nombreCliente" name="nombreCliente" placeholder="Nombre cliente"
+            class="form-control" formControlName="nombreCliente">
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-sm-6">
+          <label>Tipo usuario:</label>
+          <select validar name="tipoUsuario" class="form-select" id="tipoUsuario" formControlName="tipoUsuario">
+            <option value="1">Nativo</option>
+            <option value="2">Turista</option>
+          </select>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-sm-6">
+          <label>Número de documento:</label>
+          <input validar type="text" id="numeroDocumento" name="numeroDocumento" placeholder="Número de documento"
+            class="form-control" formControlName="numeroDocumento">
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-sm-4">
+          <button type="submit" class="btn btn-outline-primary" id="botonCrear"
+            [disabled]="!reservaForm.valid">Crear
+            reserva</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+<!-- Button trigger modal -->
+<button type="button" hidden="hidden" class="bModal" data-bs-toggle="modal" data-bs-target="#exampleModal">
+</button>
+
+<!-- Modal -->
+<div class="modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Reserva</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h6>{{mensajeModal}}</h6>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
