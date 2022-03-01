@@ -14,12 +14,12 @@ export class ReservaService {
   }
 
   public guardar(reserva: Reserva) {
-    return this.http.doPost<Reserva, Boolean>(`${environment.endpoint}/buceo`, reserva,
+    return this.http.doPost<Reserva, boolean>(`${environment.endpoint}/buceo`, reserva,
                                                 this.http.optsName('crear reserva'));
   }
 
   public actualizar(reserva: Reserva) {
-    return this.http.doPut<Reserva,Boolean>(`${environment.endpoint}/buceo/${reserva.id}`,reserva,
+    return this.http.doPut<Reserva,boolean>(`${environment.endpoint}/buceo/${reserva.id}`,reserva,
                                                  this.http.optsName('eliminar productos'));
   }
 }
