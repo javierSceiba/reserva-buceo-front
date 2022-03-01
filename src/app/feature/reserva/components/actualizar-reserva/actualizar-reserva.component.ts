@@ -3,8 +3,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ReservaService } from '@reserva/shared/service/reserva.service';
 import { Reserva } from '@reserva/shared/model/reserva';
 const LONGITUD_MINIMA_PERMITIDA_TEXTO = 1;
-const MENSAJE_ERROR_ACTUALIZACION_RESERVA = "Fallo actualización de la reserva: ";
-const MENSAJE_CONFIRMACION_ACTUALIZACION_RESERVA = "Reserva actualizada correctamente, puede verificarla en el area de consultas";
+const MENSAJE_ERROR_ACTUALIZACION_RESERVA = 'Fallo actualización de la reserva: ';
+const MENSAJE_CONFIRMACION_ACTUALIZACION_RESERVA = 'Reserva actualizada correctamente, puede verificarla en el area de consultas';
 
 @Component({
   selector: 'app-actualizar-reserva',
@@ -24,11 +24,9 @@ export class ActualizarReservaComponent implements OnInit {
   }
 
   actualizar() {
-    console.log("Fecha Reserva: "+this.actualizarForm.value.fechaReserva);
     this.reserva.fechaReserva = this.actualizarForm.value.fechaReserva;
-    console.log(this.reserva);
     this.reservaServices.actualizar(this.reserva).subscribe(result => {
-      console.log(result);
+      result;
       this.mensajeModal = MENSAJE_CONFIRMACION_ACTUALIZACION_RESERVA;
       let element: HTMLElement = document.getElementsByClassName('bModal')[0] as HTMLElement;
       element.click();
@@ -42,12 +40,11 @@ export class ActualizarReservaComponent implements OnInit {
 
   consultar() {
     this.reservaServices.consultar(this.actualizarForm.value).subscribe(result => {
-      console.log(JSON.stringify(result));
       this.reserva = new Reserva(result['id'], result['nombreCliente'], result['tipoUsuario'], result['numeroDocumento'], result['costoReserva'], result['fechaReserva']);
       this.actualizar();
     },
       error => {
-        console.log(error);
+        error;
         this.reserva = new Reserva(0, '', 0, 0, 0, '');
       });
   }

@@ -3,7 +3,7 @@ import { Reserva } from '@reserva/shared/model/reserva';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ReservaService } from '@reserva/shared/service/reserva.service';
 const LONGITUD_MINIMA_PERMITIDA_TEXTO = 1;
-const MENSAJE_ERROR_CONSULTA_RESERVA = "Fallo consulta de la reserva: ";
+const MENSAJE_ERROR_CONSULTA_RESERVA = 'Fallo consulta de la reserva: ';
 @Component({
   selector: 'app-consultar-reserva',
   templateUrl: './consultar-reserva.component.html',
@@ -22,7 +22,6 @@ export class ConsultarReservaComponent implements OnInit {
   }
 
   consultar() {
-    console.log(this.consultaForm);
     this.reservaServices.consultar(this.consultaForm.value).subscribe(result => {
       this.listaReservas = [];
       this.reserva = new Reserva(result['id'],result['nombreCliente'],result['tipoUsuario'],result['numeroDocumento'],result['costoReserva'],result['fechaReserva']);

@@ -7,7 +7,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { ReservaService } from '../../shared/service/reserva.service';
 import { HttpService } from 'src/app/core/services/http.service';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-const MENSAJE_CONFIRMACION_CREAR_RESERVA = "Reserva creada correctamente id de reserva: ";
+const MENSAJE_CONFIRMACION_CREAR_RESERVA = 'Reserva creada correctamente id de reserva: ';
 describe('CrearReservaComponent', () => {
   let component: CrearReservaComponent;
   let fixture: ComponentFixture<CrearReservaComponent>;

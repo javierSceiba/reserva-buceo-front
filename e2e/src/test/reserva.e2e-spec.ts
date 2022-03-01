@@ -1,8 +1,8 @@
 import { NavbarPage } from '../page/navbar/navbar.po';
 import { AppPage } from '../app.po';
-import { ReservaPage } from '../page/producto/reserva.po';
+import { ReservaPage } from '../page/reserva/reserva.po';
 
-describe('workspace-project Producto', () => {
+describe('workspace-project Reserva', () => {
     let page: AppPage;
     let navBar: NavbarPage;
     let reserva: ReservaPage;
