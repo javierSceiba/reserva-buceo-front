@@ -56,6 +56,6 @@ describe('ActualizarReservaComponent', () => {
 
   it('Crear fecha permitida', () => {
     component.calcularFechaPermitida();
-    expect(component.fechaPermitida).toBe('2022-03-01');
+    expect(component.fechaPermitida).toBe('2022-03-02');
   });
 });
