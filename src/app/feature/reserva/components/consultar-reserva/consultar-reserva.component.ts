@@ -13,7 +13,7 @@ export class ConsultarReservaComponent implements OnInit {
   public reserva: Reserva;
   public listaReservas: Reserva[] = [];
   consultaForm: FormGroup;
-  disTabla: boolean = false;
+  disTabla = false;
   mensajeModal?: string;
   constructor(protected reservaServices: ReservaService) { }
 
