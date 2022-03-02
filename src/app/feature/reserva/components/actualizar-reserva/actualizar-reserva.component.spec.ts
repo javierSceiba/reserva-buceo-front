@@ -68,6 +68,11 @@ describe('ActualizarReservaComponent', () => {
   });
 
   it('Falla Actualizar Reserva', () => {
+    reservaService.consultar = jasmine.createSpy().and.returnValue(throwError({
+      "nombreExcepcion": "EmptyResultDataAccessException",
+      "mensaje": "Ocurrio un error favor contactar al administrador."
+    }));
+    component.consultar();
     reservaService.actualizar = jasmine.createSpy().and.returnValue(throwError({
       "nombreExcepcion": "ExcepcionDuplicidad",
       "mensaje": "La reserva no existe en el sistema"

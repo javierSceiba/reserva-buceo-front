@@ -27,8 +27,6 @@ describe('workspace-project Reserva', () => {
         reserva.ingresarNombreCliente(NOMBRE_CLIENTE);
         reserva.ingresarTipoUsuario(TIPO_USUARIO);
         reserva.ingresarNumeroDocumento(NUMERO_DOCUMENTO);
-        
-        console.log("Mensaje: "+reserva.obtenerMensajeCreacion());
         reserva.clickBotonCrearReserva();
         expect(reserva.obtenerMensajeCreacion()).toContain(MENSAJE_CONFIRMACION_CREAR_RESERVA);
     });
@@ -46,15 +44,13 @@ describe('workspace-project Reserva', () => {
     it('Deberia actualizar reserva', () => {
         const ID_RESERVA = 1;
         const FECHA_RESERVA = "05-04-2022";
-
         page.navigateTo();
         navBar.clickBotonReservas();
         reserva.clickBotonActualizarReservas();
         reserva.ingresarId(ID_RESERVA);
         reserva.ingresarFechaReserva(FECHA_RESERVA);
-        console.log("Mensaje actu: "+reserva.obtenerMensajeCreacion());
         reserva.clickBotonActualizarReserva();
-        expect(reserva.obtenerMensajeCreacion()).toContain(MENSAJE_CONFIRMACION_ACTUALIZACION_RESERVA);
+        expect(reserva.obtenerMensajeActualizacion()).toContain(MENSAJE_CONFIRMACION_ACTUALIZACION_RESERVA);
     });
 
 });

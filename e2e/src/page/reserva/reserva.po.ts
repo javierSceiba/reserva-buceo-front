@@ -13,7 +13,8 @@ export class ReservaPage {
     private btnCrearReserva = element(by.id('botonCrear'));
     private btnConsultarReserva = element(by.id('botonConsultar'));
     private btnActualizarReserva = element(by.id('botonActualizar'));
-    private obtenerMensaje =  element(by.css('#exampleModal div.modal-body h6'));
+    private obtenerMensajeActualizar =  element(by.css('#actualizaModal div.modal-body h6'));
+    private obtenerMensajeCrear =  element(by.css('#crearModal div.modal-body h6'));
 
     async clickBotonCrearReservas() {
         await this.linkCrearReserva.click();
@@ -23,7 +24,7 @@ export class ReservaPage {
         await this.linkConsultarReserva.click();
     }
 
-async clickBotonActualizarReservas() {
+    async clickBotonActualizarReservas() {
         await this.linkActualizarReserva.click();
     }
 
@@ -64,7 +65,11 @@ async clickBotonActualizarReservas() {
     }
 
     obtenerMensajeCreacion() {
-       return this.obtenerMensaje.getText() as Promise<string>;
+       return this.obtenerMensajeCrear.getText() as Promise<string>;
     }
+
+    obtenerMensajeActualizacion() {
+        return this.obtenerMensajeActualizar.getText() as Promise<string>;
+     }
 
 }
