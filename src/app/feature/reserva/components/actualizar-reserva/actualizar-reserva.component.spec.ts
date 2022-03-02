@@ -7,11 +7,14 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { ReservaService } from '../../shared/service/reserva.service';
 import { HttpService } from 'src/app/core/services/http.service';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { Reserva } from '@reserva/shared/model/reserva';
 describe('ActualizarReservaComponent', () => {
   let component: ActualizarReservaComponent;
   let fixture: ComponentFixture<ActualizarReservaComponent>;
   let reservaService: ReservaService;
   const MENSAJE_CONFIRMACION_ACTUALIZACION_RESERVA = 'Reserva actualizada correctamente, puede verificarla en el area de consultas';
+  const reserva: Reserva = new Reserva(2, 'Javier Prueba', 1, 101, 160000, '2022-02-28');
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ ActualizarReservaComponent ],
@@ -50,7 +53,11 @@ describe('ActualizarReservaComponent', () => {
     component.actualizarForm.controls.id.setValue(1);
     component.actualizarForm.controls.fechaReserva.setValue('25-03-2022');
     expect(component.actualizarForm.valid).toBeTruthy();
+    spyOn(reservaService, 'consultar').and.callFake(() => {
+      return of(reserva)
+    });
     component.consultar();
+    expect(reservaService.consultar).toHaveBeenCalled();
     component.actualizar();
     expect(component.mensajeModal).toContain(MENSAJE_CONFIRMACION_ACTUALIZACION_RESERVA);
   });
