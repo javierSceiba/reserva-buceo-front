@@ -11,7 +11,7 @@ describe('ActualizarReservaComponent', () => {
   let component: ActualizarReservaComponent;
   let fixture: ComponentFixture<ActualizarReservaComponent>;
   let reservaService: ReservaService;
-  //const MENSAJE_CONFIRMACION_ACTUALIZACION_RESERVA = "Reserva actualizada correctamente, puede verificarla en el area de consultas";
+  const MENSAJE_CONFIRMACION_ACTUALIZACION_RESERVA = 'Reserva actualizada correctamente, puede verificarla en el area de consultas';
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ ActualizarReservaComponent ],
@@ -45,17 +45,18 @@ describe('ActualizarReservaComponent', () => {
     expect(component.actualizarForm.valid).toBeFalsy();
   });
 
-  /*it('Actualizando reserva', () => {
+  it('Actualizando reserva', () => {
     expect(component.actualizarForm.valid).toBeFalsy();
     component.actualizarForm.controls.id.setValue(1);
     component.actualizarForm.controls.fechaReserva.setValue('25-03-2022');
     expect(component.actualizarForm.valid).toBeTruthy();
     component.consultar();
+    component.actualizar();
     expect(component.mensajeModal).toContain(MENSAJE_CONFIRMACION_ACTUALIZACION_RESERVA);
-  });*/
+  });
 
   it('Crear fecha permitida', () => {
     component.calcularFechaPermitida();
-    expect(component.fechaPermitida).toBe('2022-03-02');
+    expect(component.fechaPermitida).toBe('2022-03-03');
   });
 });
