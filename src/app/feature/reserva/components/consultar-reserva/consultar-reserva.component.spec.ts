@@ -7,7 +7,7 @@ import { ReservaService } from '../../shared/service/reserva.service';
 import { HttpService } from 'src/app/core/services/http.service';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { Reserva } from '@reserva/shared/model/reserva';
-import { of } from 'rxjs';
+import { of, throwError } from 'rxjs';
 describe('ConsultarReservaComponent', () => {
   let component: ConsultarReservaComponent;
   let fixture: ComponentFixture<ConsultarReservaComponent>;
@@ -54,4 +54,12 @@ describe('ConsultarReservaComponent', () => {
     expect(1).toBe(component.listaReservas.length);
   });
 
+  it('Falla consultar Reserva', () => {
+    reservaService.consultar = jasmine.createSpy().and.returnValue(throwError({
+      "nombreExcepcion": "EmptyResultDataAccessException",
+      "mensaje": "OcurriÃ³ un error favor contactar al administrador."
+    }));
+    component.consultar();
+    expect(reservaService.consultar).toHaveBeenCalled();
+  });
 });

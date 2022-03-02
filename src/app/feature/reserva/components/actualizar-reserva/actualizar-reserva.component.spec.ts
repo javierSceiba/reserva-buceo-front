@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { of } from 'rxjs';
+import { of, throwError } from 'rxjs';
 import { ActualizarReservaComponent } from './actualizar-reserva.component';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
@@ -58,5 +58,14 @@ describe('ActualizarReservaComponent', () => {
   it('Crear fecha permitida', () => {
     component.calcularFechaPermitida();
     expect(component.fechaPermitida).toBe('2022-03-03');
+  });
+
+  it('Falla Actualizar Reserva', () => {
+    reservaService.actualizar = jasmine.createSpy().and.returnValue(throwError({
+      "nombreExcepcion": "ExcepcionDuplicidad",
+      "mensaje": "La reserva no existe en el sistema"
+    }));
+    component.actualizar();
+    expect(reservaService.actualizar).toHaveBeenCalled();
   });
 });
