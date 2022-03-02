@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { of } from 'rxjs';
+import { of, throwError } from 'rxjs';
 import { CrearReservaComponent } from './crear-reserva.component';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
@@ -56,4 +56,13 @@ describe('CrearReservaComponent', () => {
     expect(component.mensajeModal).toContain(MENSAJE_CONFIRMACION_CREAR_RESERVA);
   });
 
+  it('Falla Crear Reserva', () => {
+    reservaService.guardar = jasmine.createSpy().and.returnValue(throwError({
+      "nombreExcepcion": "ExcepcionDuplicidad",
+      "mensaje": "El cliente tiene una reserva activa"
+    }));
+    component.crear();
+    expect(reservaService.guardar).toHaveBeenCalled();
+  });
+  
 });
