@@ -10,7 +10,7 @@ export const listaErrores = {
     `Mínimo <strong>${requiredLength}</strong> caracteres, actual <strong>${actualLength}</strong>`,
   maxlength: ({ requiredLength, actualLength }) =>
     `Máximo <strong>${requiredLength}</strong> caracteres, actual <strong>${actualLength}</strong>`,
-  pattern:_ => `Solo datos <strong> númericos </strong>`,
+  pattern: _ => `Solo datos <strong> númericos </strong>`,
 };
 
 export const FORM_ERRORS = new InjectionToken('FORM_ERRORS', {

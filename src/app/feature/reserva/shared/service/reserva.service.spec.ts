@@ -26,7 +26,7 @@ describe('ReservaService', () => {
     expect(reservaService).toBeTruthy();
   });
 
- it('deberia consultar reserva por id', () => {
+  it('deberia consultar reserva por id', () => {
     const dummyReserva = new Reserva(3, 'Javier', 1, 10184, 160000, '2022-03-01');
     service.consultar(dummyReserva).subscribe(reserva => {
       expect(reserva).toEqual(dummyReserva);
@@ -43,7 +43,7 @@ describe('ReservaService', () => {
     });
     const req = httpMock.expectOne(apiEndpointReserva);
     expect(req.request.method).toBe('POST');
-    req.event(new HttpResponse<boolean>({body: true}));
+    req.event(new HttpResponse<boolean>({ body: true }));
   });
 
   it('deberia actualizar una reserva', () => {
@@ -53,6 +53,6 @@ describe('ReservaService', () => {
     });
     const req = httpMock.expectOne(`${apiEndpointReserva}/2`);
     expect(req.request.method).toBe('PUT');
-    req.event(new HttpResponse<boolean>({body: true}));
+    req.event(new HttpResponse<boolean>({ body: true }));
   });
 });

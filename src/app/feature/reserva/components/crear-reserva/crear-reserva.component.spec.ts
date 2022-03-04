@@ -58,11 +58,8 @@ describe('CrearReservaComponent', () => {
 
   it('Falla Crear Reserva', () => {
     reservaService.guardar = jasmine.createSpy().and.returnValue(throwError({
-      "nombreExcepcion": "ExcepcionDuplicidad",
-      "mensaje": "El cliente tiene una reserva activa"
     }));
     component.crear();
     expect(reservaService.guardar).toHaveBeenCalled();
   });
-  
 });

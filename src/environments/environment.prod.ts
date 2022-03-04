@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  endpoint: '/reserva-buceo'
+  endpoint: '/reserva'
 };

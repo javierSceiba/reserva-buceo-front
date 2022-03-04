@@ -56,8 +56,6 @@ describe('ConsultarReservaComponent', () => {
 
   it('Falla consultar Reserva', () => {
     reservaService.consultar = jasmine.createSpy().and.returnValue(throwError({
-      "nombreExcepcion": "EmptyResultDataAccessException",
-      "mensaje": "OcurriÃ³ un error favor contactar al administrador."
     }));
     component.consultar();
     expect(reservaService.consultar).toHaveBeenCalled();

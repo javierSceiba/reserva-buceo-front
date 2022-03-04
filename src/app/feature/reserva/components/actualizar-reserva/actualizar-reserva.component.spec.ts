@@ -64,18 +64,14 @@ describe('ActualizarReservaComponent', () => {
 
   it('Crear fecha permitida', () => {
     component.calcularFechaPermitida();
-    expect(component.fechaPermitida).toBe('2022-03-03');
+    expect(component.fechaPermitida).toBe('2022-03-04');
   });
 
   it('Falla Actualizar Reserva', () => {
     reservaService.consultar = jasmine.createSpy().and.returnValue(throwError({
-      "nombreExcepcion": "EmptyResultDataAccessException",
-      "mensaje": "Ocurrio un error favor contactar al administrador."
     }));
     component.consultar();
     reservaService.actualizar = jasmine.createSpy().and.returnValue(throwError({
-      "nombreExcepcion": "ExcepcionDuplicidad",
-      "mensaje": "La reserva no existe en el sistema"
     }));
     component.actualizar();
     expect(reservaService.actualizar).toHaveBeenCalled();

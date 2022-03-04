@@ -19,7 +19,7 @@ export class ReservaService {
   }
 
   public actualizar(reserva: Reserva) {
-    return this.http.doPut<Reserva,boolean>(`${environment.endpoint}/buceo/${reserva.id}`,reserva,
+    return this.http.doPut<Reserva, boolean>(`${environment.endpoint}/buceo/${reserva.id}`, reserva,
                                                  this.http.optsName('eliminar productos'));
   }
 }

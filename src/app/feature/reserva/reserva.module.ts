@@ -3,7 +3,7 @@ import { CrearReservaComponent } from './components/crear-reserva/crear-reserva.
 import { ConsultarReservaComponent } from './components/consultar-reserva/consultar-reserva.component';
 import { ActualizarReservaComponent } from './components/actualizar-reserva/actualizar-reserva.component';
 import { ReservaComponent } from './components/reserva/reserva.component';
-import { ReservaRoutingModule } from './reserva-routing.module'; 
+import { ReservaRoutingModule } from './reserva-routing.module';
 import { SharedModule } from '@shared/shared.module';
 import { ReservaService } from './shared/service/reserva.service';
 

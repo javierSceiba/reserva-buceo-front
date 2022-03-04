@@ -6,9 +6,8 @@ describe('workspace-project Reserva', () => {
     let page: AppPage;
     let navBar: NavbarPage;
     let reserva: ReservaPage;
-    const MENSAJE_CONFIRMACION_CREAR_RESERVA = "Reserva creada correctamente id de reserva: ";
-    const MENSAJE_CONFIRMACION_ACTUALIZACION_RESERVA = "Reserva actualizada correctamente, puede verificarla en el area de consultas";
-
+    const MENSAJE_CONFIRMACION_CREAR_RESERVA = 'Reserva creada correctamente id de reserva: ';
+    const MENSAJE_CONFIRMACION_ACTUALIZACION_RESERVA = 'Reserva actualizada correctamente, puede verificarla en el area de consultas';
 
     beforeEach(() => {
         page = new AppPage();
@@ -18,7 +17,7 @@ describe('workspace-project Reserva', () => {
 
     it('Deberia crear reserva', () => {
         const NOMBRE_CLIENTE = 'Javier';
-        const TIPO_USUARIO = "Nativo";
+        const TIPO_USUARIO = 'Nativo';
         const NUMERO_DOCUMENTO = 123415;
 
         page.navigateTo();
@@ -43,7 +42,7 @@ describe('workspace-project Reserva', () => {
 
     it('Deberia actualizar reserva', () => {
         const ID_RESERVA = 1;
-        const FECHA_RESERVA = "05-04-2022";
+        const FECHA_RESERVA = '05-04-2022';
         page.navigateTo();
         navBar.clickBotonReservas();
         reserva.clickBotonActualizarReservas();
@@ -52,5 +51,4 @@ describe('workspace-project Reserva', () => {
         reserva.clickBotonActualizarReserva();
         expect(reserva.obtenerMensajeActualizacion()).toContain(MENSAJE_CONFIRMACION_ACTUALIZACION_RESERVA);
     });
-
 });

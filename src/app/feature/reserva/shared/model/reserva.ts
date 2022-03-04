@@ -6,7 +6,8 @@ export class Reserva {
     costoReserva: number;
     fechaReserva: string;
 
-    constructor(id: number, nombreCliente: string,tipoUsuario: number, numeroDocumento: number,costoReserva: number, fechaReserva: string) {
+    constructor(id: number, nombreCliente: string, tipoUsuario: number,
+        numeroDocumento: number, costoReserva: number, fechaReserva: string) {
         this.id = id;
         this.nombreCliente = nombreCliente;
         this.tipoUsuario = tipoUsuario;

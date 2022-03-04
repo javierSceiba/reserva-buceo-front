@@ -1,5 +1,5 @@
 {
-  "/reserva-buceo": {
+  "/reserva": {
     "target": "http://localhost:9000",
     "logLevel": "debug"
   }
