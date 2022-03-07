@@ -54,7 +54,7 @@ describe('ActualizarReservaComponent', () => {
     component.actualizarForm.controls.fechaReserva.setValue('25-03-2022');
     expect(component.actualizarForm.valid).toBeTruthy();
     spyOn(reservaService, 'consultar').and.callFake(() => {
-      return of(reserva)
+      return of(reserva);
     });
     component.consultar();
     expect(reservaService.consultar).toHaveBeenCalled();
@@ -64,7 +64,7 @@ describe('ActualizarReservaComponent', () => {
 
   it('Crear fecha permitida', () => {
     component.calcularFechaPermitida();
-    expect(component.fechaPermitida).toBe('2022-03-05');
+    expect(component.fechaPermitida).toBe('2022-03-08');
   });
 
   it('Falla Actualizar Reserva', () => {

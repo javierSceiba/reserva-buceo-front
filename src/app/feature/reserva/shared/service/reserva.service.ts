@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpService } from '@core-service/http.service';
 import { environment } from 'src/environments/environment';
 import { Reserva } from '../model/reserva';
+import { ResponseReserva } from '../model/responseReserva';
 
 
 @Injectable()
@@ -14,7 +15,7 @@ export class ReservaService {
   }
 
   public guardar(reserva: Reserva) {
-    return this.http.doPost<Reserva, boolean>(`${environment.endpoint}/buceo`, reserva,
+    return this.http.doPost<Reserva, ResponseReserva>(`${environment.endpoint}/buceo`, reserva,
                                                 this.http.optsName('crear reserva'));
   }
 

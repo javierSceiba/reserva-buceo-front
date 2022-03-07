@@ -36,16 +36,6 @@ describe('ReservaService', () => {
     req.flush(dummyReserva);
   });
 
-  it('deberia crear una reserva', () => {
-    const dummyReserva = new Reserva(2, 'Javier Prueba', 1, 101, 160000, '2022-02-28');
-    service.guardar(dummyReserva).subscribe((respuesta) => {
-      expect(respuesta).toEqual(true);
-    });
-    const req = httpMock.expectOne(apiEndpointReserva);
-    expect(req.request.method).toBe('POST');
-    req.event(new HttpResponse<boolean>({ body: true }));
-  });
-
   it('deberia actualizar una reserva', () => {
     const dummyReserva = new Reserva(2, 'Javier Prueba', 1, 101, 160000, '2022-02-28');
     service.actualizar(dummyReserva).subscribe((respuesta) => {
@@ -53,6 +43,15 @@ describe('ReservaService', () => {
     });
     const req = httpMock.expectOne(`${apiEndpointReserva}/2`);
     expect(req.request.method).toBe('PUT');
+    req.event(new HttpResponse<boolean>({ body: true }));
+  });
+  it('deberia crear una reserva', () => {
+    const dummyReserva = new Reserva(2, 'Javier Prueba', 1, 101, 160000, '2022-02-28');
+    service.guardar(dummyReserva).subscribe((respuesta) => {
+      window.console.log('Log servicio guardar' + respuesta);
+    });
+    const req = httpMock.expectOne(apiEndpointReserva);
+    expect(req.request.method).toBe('POST');
     req.event(new HttpResponse<boolean>({ body: true }));
   });
 });

@@ -25,7 +25,7 @@ export class CrearReservaComponent implements OnInit {
 
   crear() {
     this.reservaServices.guardar(this.reservaForm.value).subscribe(result => {
-      this.mensajeModal = MENSAJE_CONFIRMACION_CREAR_RESERVA + result['valor'];
+      this.mensajeModal = MENSAJE_CONFIRMACION_CREAR_RESERVA + result.valor;
       this.reservaForm.reset();
       const element: HTMLElement = document.getElementsByClassName('bModal')[0] as HTMLElement;
       element.click();

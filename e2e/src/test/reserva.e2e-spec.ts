@@ -27,7 +27,7 @@ describe('workspace-project Reserva', () => {
         reserva.ingresarTipoUsuario(TIPO_USUARIO);
         reserva.ingresarNumeroDocumento(NUMERO_DOCUMENTO);
         reserva.clickBotonCrearReserva();
-        expect(reserva.obtenerMensajeCreacion()).toContain(MENSAJE_CONFIRMACION_CREAR_RESERVA);
+        expect(reserva.obtenerMensajeModal()).toContain(MENSAJE_CONFIRMACION_CREAR_RESERVA);
     });
 
     it('Deberia consultar reserva', () => {
@@ -49,6 +49,6 @@ describe('workspace-project Reserva', () => {
         reserva.ingresarId(ID_RESERVA);
         reserva.ingresarFechaReserva(FECHA_RESERVA);
         reserva.clickBotonActualizarReserva();
-        expect(reserva.obtenerMensajeActualizacion()).toContain(MENSAJE_CONFIRMACION_ACTUALIZACION_RESERVA);
+        expect(reserva.obtenerMensajeModal()).toContain(MENSAJE_CONFIRMACION_ACTUALIZACION_RESERVA);
     });
 });

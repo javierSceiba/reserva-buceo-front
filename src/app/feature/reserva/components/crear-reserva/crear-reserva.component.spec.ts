@@ -7,11 +7,13 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { ReservaService } from '../../shared/service/reserva.service';
 import { HttpService } from 'src/app/core/services/http.service';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { ResponseReserva } from '@reserva/shared/model/responseReserva';
 const MENSAJE_CONFIRMACION_CREAR_RESERVA = 'Reserva creada correctamente id de reserva: ';
 describe('CrearReservaComponent', () => {
   let component: CrearReservaComponent;
   let fixture: ComponentFixture<CrearReservaComponent>;
   let reservaService: ReservaService;
+  const dummyResponseReserva = new ResponseReserva(1);
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -33,7 +35,7 @@ describe('CrearReservaComponent', () => {
     component = fixture.componentInstance;
     reservaService = TestBed.inject(ReservaService);
     spyOn(reservaService, 'guardar').and.returnValue(
-      of(true)
+      of(dummyResponseReserva)
     );
     fixture.detectChanges();
   });
